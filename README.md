@@ -7,6 +7,3 @@ The `pub fn build` function takes three `u64`-integers and checks if **none of t
 * `pub fn is_equilateral` checks if all sides are the same length
 * `pub fn is_isosceles` checks if exactly two sides are
 * `pub fn is_scalene` checks if all sides are different from each other
-
-# testing
-Tests are implemented in the `test.rs` file and can be run with: `cargo test -- --ignored`
