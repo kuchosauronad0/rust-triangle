@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: kuchosauronad0/audit-check@master
+      - uses: kuchosauronad0/audit-check@development
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
