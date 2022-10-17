@@ -5,11 +5,10 @@ on:
     - cron: '0 0 * * 0'
   push:
     branches:
-     - main
+      - main
     paths:
       - '**/Cargo.toml'
       - '**/Cargo.lock'
-  pull_request:
 
 jobs:
   audit:
