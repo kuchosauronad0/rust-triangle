@@ -5,6 +5,7 @@ pub struct Triangle {
 }
 
 impl Triangle {
+    #[must_use]
     pub fn build(sides: [u64; 3]) -> Option<Triangle> {
         let [a, b, c] = sides;
         // Test if either side is 0 and if the sum of two sides is less than the third
@@ -16,14 +17,17 @@ impl Triangle {
     }
 
     // An equilateral triangle has three sides of the same length
+    #[must_use]
     pub fn is_equilateral(&self) -> bool {
         self.a == self.b && self.b == self.c
     }
     // A scalene triangle has three sides with different lengths
+    #[must_use]
     pub fn is_scalene(&self) -> bool {
         !self.is_equilateral() && !self.is_isosceles()
     }
     // An isoscele triangle has two sides of the same length
+    #[must_use]
     pub fn is_isosceles(&self) -> bool {
         !self.is_equilateral()
             && ((self.a == self.b && self.a != self.c)
