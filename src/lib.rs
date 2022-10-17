@@ -310,4 +310,3 @@ mod tests {
         assert!(triangle.is_none());
     }
 }
-
