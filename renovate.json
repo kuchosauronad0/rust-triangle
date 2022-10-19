@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>kuchosauronad0/renovate-config",
+        "github>kuchosauronad0/renovate-config//rust/updateRustVersionInCargoToml",
+        "github>kuchosauronad0/renovate-config//rust/updateChannelInRustToolchainToml"
+    ]
+}
