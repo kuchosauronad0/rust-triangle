@@ -4,4 +4,6 @@
 .cr-index
 
 node_modules/
+reports/
+profiling/
 NEXTVERSION
