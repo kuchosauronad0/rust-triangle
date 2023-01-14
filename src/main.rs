@@ -5,5 +5,5 @@ fn main() {
 
     let triangle = Triangle::build(sides);
 
-    assert!(triangle.is_some())
+    assert!(triangle.is_some());
 }
