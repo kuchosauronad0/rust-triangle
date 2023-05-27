@@ -254,7 +254,7 @@ jobs:
         run: |
           grcov $(find profiling -name "profile-*.profraw" -print) --source-dir . --binary-path ./target/debug/ --output-type lcov --branch --ignore-not-existing --llvm --keep-only 'src/**' --keep-only 'tests/**' --output-path ./reports/lcov.info
       - name: Upload to CodeCov
-        uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70 # tag=v3.1.1
+        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: reports
@@ -343,7 +343,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@507c2f2dc502c992ad446e3d7a5dfbe311567a96 # v4.3.0
+        uses: docker/metadata-action@c4ee3adeed93b1fa6a762f209fb01608c1a22f1e # v4.4.0
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |

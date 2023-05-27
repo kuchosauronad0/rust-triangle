@@ -1,5 +1,6 @@
 FROM rust:1.69.0@sha256:c2dcc19371a976065950915307b03a9c5514e5143bdd833635d5501a0642992e as builder
 
+
 ENV TARGET=x86_64-unknown-linux-musl
 RUN rustup target add ${TARGET}
 
@@ -31,7 +32,7 @@ COPY src ./src
 RUN --mount=type=cache,target=/build/rust-triangle/target \
     cargo install --path . --target ${TARGET} --root /output
 
-FROM alpine:3.17.2@sha256:ff6bdca1701f3a8a67e328815ff2346b0e4067d32ec36b7992c1fdc001dc8517
+FROM alpine:3.18.0@sha256:02bb6f428431fbc2809c5d1b41eab5a68350194fb508869a33cb1af4444c9b11
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
