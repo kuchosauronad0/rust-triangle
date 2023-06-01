@@ -38,5 +38,5 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
 
 WORKDIR /app
-COPY --from=builder /output/bin/rust-triangle /app
+COPY --from=builder /output/bin/triangle /app
 ENTRYPOINT ["/app/rust-triangle"]
