@@ -1,4 +1,4 @@
-name: Test Release (do a dry run)
+name: Release
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -6,18 +6,19 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
+concurrency:
+  group: "${{ github.workflow }}"
+  cancel-in-progress: true # only last step is important, which runs or doesn't
+
 on:
   workflow_dispatch: # releasing is manual as we don't want to release every time
-    inputs:
-      name:
-        description: World?
-        required: false
-        default: "Hello World!"
+    branches: [main]
 
 permissions:
-  contents: write
-  issues: read
-  pull-requests: read
+  contents: write # to write tags
+  packages: write # to write tags to Docker registry
+  issues: write
+  pull-requests: write
 
 jobs:
   release:
@@ -32,6 +33,8 @@ jobs:
           exit 1
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
+        with:
+          token: ${{ secrets.TOKEN_TO_TRIGGER_SUBSEQUENT_WORKFLOWS }}
 
       - name: Setup Node.js
         uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
@@ -45,10 +48,11 @@ jobs:
         run: |
           npm ci --ignore-scripts
       - name: Release
-        shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_TO_TRIGGER_SUBSEQUENT_WORKFLOWS }}
+        shell: bash
         run: |
-          echo "::group::Release dry run output"
-          npm run release -- --dry-run
-          echo "::endgroup::"
+          # TODO this release file produces a
+          # changelog
+          # we want to commit that and defer the release to THAT commit sha
+          npm run release
