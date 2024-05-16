@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: returntocorp/semgrep@sha256:21b3f6cf4ed46fd0c422d2d872be44940282f906dbca89a09d39a008b08878ea
+      image: returntocorp/semgrep@sha256:bd49ce808bd740b552f50e6acedc0fff2ff18b54cade946ad7adc951b4620372
 
     steps:
       - name: Check out repo
