@@ -1,4 +1,4 @@
-FROM rust:1.85.0@sha256:0ff31c9ffa641a62e48d543fb00b4960955ea375f40776f40f585b89e654cc5e as builder
+FROM rust:1.94.1@sha256:f2a0f2b3529c9bbbf5479d131611451a3cc3956d9a11374d6d4ba96f059c1dce as builder
 
 
 ENV TARGET=x86_64-unknown-linux-musl
