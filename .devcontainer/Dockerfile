@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/rust:1-bullseye@sha256:287cf905d416f8b3bbedc2950e6324df219bc1746d9154b480a4775d5483c81d
+FROM mcr.microsoft.com/vscode/devcontainers/rust:1-bullseye@sha256:d1bf7902e3f999b8e47e1804fc62694cdffb77860e7b8c4a0fd81cfa8f153018
 
 # [Optional] Uncomment this section to install additional packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
