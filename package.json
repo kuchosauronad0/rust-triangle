@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/kuchosauronad0/rust-triangle#readme",
   "devDependencies": {
-    "@actions/tool-cache": "^2.0.1",
+    "@actions/tool-cache": "^4.0.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^13.0.0",
     "@semantic-release/github": "^11.0.0",
